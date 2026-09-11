@@ -19,5 +19,35 @@ static void buildFile(const string& name, unsigned long long M) {
 }
 
 int main(int argc, char* argv[]) {
+    string filename;
+    unsigned long long n = 0;
+    bool experiment = true;
+
+    if (argc >= 3 && fileExists(argv[1])) {
+        filename = argv[1];
+        n = stoull(argv[2]);
+        experiment = false;
+    } else {
+        unsigned long long M = 0;
+        if (argc >= 3) {
+            M = stoull(argv[1]);
+            n = stoull(argv[2]);
+        } else {
+            cout << "M (розмір бази питань): ";
+            if (!(cin >> M)) {
+                cerr << "Помилка введення M\n";
+                return 1;
+            }
+            cout << "n (питань у варіанті): ";
+            if (!(cin >> n)) {
+                cerr << "Помилка введення n\n";
+                return 1;
+            }
+        }
+        filename = "output.txt";
+        buildFile(filename, M);
+        cout << "Файл \"" << filename << "\" з " << M << " питань створено.\n";
+    }
+
     return 0;
 }
