@@ -89,6 +89,13 @@ public:
 
         used.insert(ticket);
 
-        return "";
+        ostringstream out;
+        size_t k = 0;
+        for (auto idx : ticket.indices) {
+            ++k;
+            out << k << ". " << q[idx] << (k < ticket.indices.size() ? "\n\n" : "");
+        }
+        return out.str();
+
     }
 };
