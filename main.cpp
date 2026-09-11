@@ -60,6 +60,16 @@ int main(int argc, char* argv[]) {
                 cout << "--- Варіант " << i++ << " ---\n" << variant << "\n\n";
             }
         }
+        unsigned long long count = 0;
+        try {
+            for (;;) {
+                gen();
+                ++count;
+            }
+        } catch (const NoMoreVariants&) {}
+
+        cout << "Згенеровано: " << count
+             << (count == gen.total() ? " -- збігається з C(M,n)\n" : " -- не збігається!\n");
     } catch (const NoMoreVariants& e) {
         cout << e.what() << "\n";
     } catch (const exception& e) {
