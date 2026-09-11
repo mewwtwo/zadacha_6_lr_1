@@ -1,7 +1,9 @@
-cmake_minimum_required(VERSION 4.1)
+cmake_minimum_required(VERSION 3.10)
 project(zadacha_6_lr_1)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 23)
 
 add_executable(zadacha_6_lr_1
-        main.cpp)
+        main.cpp
+        Generator.h
+)
