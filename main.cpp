@@ -12,6 +12,12 @@ static bool fileExists(const string& name) {
     return ifstream(name).good();
 }
 
+static void buildFile(const string& name, unsigned long long M) {
+    ofstream out(name);
+    for (unsigned long long i = 1; i <= M; ++i)
+        out << "Питання номер " << i << "." << (i < M ? "\n\n" : "");
+}
+
 int main(int argc, char* argv[]) {
     return 0;
 }
