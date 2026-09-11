@@ -49,5 +49,23 @@ int main(int argc, char* argv[]) {
         cout << "Файл \"" << filename << "\" з " << M << " питань створено.\n";
     }
 
+    try {
+        Generator gen(filename, n);
+        cout << "Теоретична кількість варіантів C(M,n) = " << gen.total() << "\n\n";
+
+        if (!experiment) {
+            int i = 1;
+            for (;;) {
+                string variant = gen();
+                cout << "--- Варіант " << i++ << " ---\n" << variant << "\n\n";
+            }
+        }
+    } catch (const NoMoreVariants& e) {
+        cout << e.what() << "\n";
+    } catch (const exception& e) {
+        cerr << "Помилка: " << e.what() << "\n";
+        return 1;
+    }
+
     return 0;
 }
