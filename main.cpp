@@ -19,6 +19,7 @@ static void buildFile(const string& name, unsigned long long M) {
 }
 
 int main(int argc, char* argv[]) {
+    system("chcp 65001 > nul");
     string filename;
     unsigned long long n = 0;
     bool experiment = true;
