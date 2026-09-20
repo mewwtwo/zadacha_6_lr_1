@@ -6,4 +6,7 @@ set(CMAKE_CXX_STANDARD 23)
 add_executable(zadacha_6_lr_1
         main.cpp
         Generator.h
+        Generator.cpp
+        InputSetup.h
+        InputSetup.cpp
 )
